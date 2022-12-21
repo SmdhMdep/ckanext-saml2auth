@@ -104,11 +104,11 @@ class Saml2AuthPlugin(plugins.SingletonPlugin):
 
             # Clear auth cookie in the browser
             response.set_cookie('auth_tkt', domain=domain, expires=0)
-            response.set_cookie('auth_tkt', expires=0)
+         
 
             # Clear session cookie in the browser
             response.set_cookie('ckan', domain=domain, expires=0)
-            response.set_cookie('ckan', expires=0)
+        
 
         return response
 
