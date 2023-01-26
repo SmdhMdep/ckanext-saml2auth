@@ -83,7 +83,7 @@ class TestBlueprint(object):
             h[1] for h in response.headers
             if h[0].lower() == 'set-cookie']
 
-        assert len(cookie_headers) == 2
+        assert len(cookie_headers) == 4
 
         for cookie_header in cookie_headers:
             cookie = SimpleCookie()
