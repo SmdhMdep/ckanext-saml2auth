@@ -471,7 +471,7 @@ class TestGetRequest:
 
         assert response.headers['Location'] == 'http://test.ckan.net/dataset/'
         
-          @pytest.mark.ckan_config(u'ckanext.saml2auth.entity_id', u'urn:gov:gsa:SAML:2.0.profiles:sp:sso:test:entity')
+    @pytest.mark.ckan_config(u'ckanext.saml2auth.entity_id', u'urn:gov:gsa:SAML:2.0.profiles:sp:sso:test:entity')
     @pytest.mark.ckan_config(u'ckanext.saml2auth.idp_metadata.location', u'local')
     @pytest.mark.ckan_config(u'ckanext.saml2auth.idp_metadata.local_path', os.path.join(extras_folder, 'provider0', 'idp.xml'))
     @pytest.mark.ckan_config(u'ckanext.saml2auth.want_response_signed', u'False')
