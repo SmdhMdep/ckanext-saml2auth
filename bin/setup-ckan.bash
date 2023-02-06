@@ -5,7 +5,6 @@ echo "This is setup-ckan.bash..."
 
 echo "Installing the packages that CKAN requires..."
 sudo gem install apt-spy2
-sudo apt-spy2 check
 sudo apt-spy2 fix --commit
 sudo apt-get update
 # sudo apt-get update -qq
