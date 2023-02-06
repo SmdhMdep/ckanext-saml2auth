@@ -4,20 +4,23 @@ set -e
 echo "This is setup-ckan.bash..."
 
 echo "Installing the packages that CKAN requires..."
-sudo apt-get update -qq
+sudo gem install apt-spy2
+sudo apt-spy2 fix --commit
+sudo apt-get update
+# sudo apt-get update -qq
 sudo apt-get install xmlsec1 libxmlsec1-dev
 
 echo "Installing CKAN and its Python dependencies..."
-git clone https://github.com/ckan/ckan
-cd ckan
-if [ $CKANVERSION == 'master' ]
-then
-    echo "CKAN version: master"
-else
-    CKAN_TAG=$(git tag | grep ^ckan-$CKANVERSION | sort --version-sort | tail -n 1)
-    git checkout $CKAN_TAG
-    echo "CKAN version: ${CKAN_TAG#ckan-}"
-fi
+git clone https://github.com/SmdhMdep/ckan-smdh.git
+cd ckan-smdh
+# if [ $CKANVERSION == 'master' ]
+# then
+#     echo "CKAN version: master"
+# else
+#     CKAN_TAG=$(git tag | grep ^ckan-$CKANVERSION | sort --version-sort | tail -n 1)
+#     git checkout $CKAN_TAG
+#     echo "CKAN version: ${CKAN_TAG#ckan-}"
+# fi
 
 # install the recommended version of setuptools
 if [ -f requirement-setuptools.txt ]
@@ -42,7 +45,7 @@ psql -h localhost -U postgres -c "CREATE USER ckan_default WITH PASSWORD 'pass';
 psql -h localhost -U postgres -c 'CREATE DATABASE ckan_test WITH OWNER ckan_default;'
 
 echo "Initialising the database..."
-cd ckan
+cd ckan-smdh
 ckan -c test-core.ini db init
 cd -
 
