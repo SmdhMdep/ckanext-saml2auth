@@ -4,7 +4,11 @@ set -e
 echo "This is setup-ckan.bash..."
 
 echo "Installing the packages that CKAN requires..."
-sudo apt-get update -qq --fix-missing
+sudo gem install apt-spy2
+sudo apt-spy2 check
+sudo apt-spy2 fix --commit
+sudo apt-get update
+# sudo apt-get update -qq
 sudo apt-get install xmlsec1 libxmlsec1-dev
 
 echo "Installing CKAN and its Python dependencies..."
