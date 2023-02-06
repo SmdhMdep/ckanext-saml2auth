@@ -8,16 +8,16 @@ sudo apt-get update -qq
 sudo apt-get install xmlsec1 libxmlsec1-dev
 
 echo "Installing CKAN and its Python dependencies..."
-git clone https://github.com/ckan/ckan
+git clone https://github.com/SmdhMdep/ckan-smdh.git
 cd ckan
-if [ $CKANVERSION == 'master' ]
-then
-    echo "CKAN version: master"
-else
-    CKAN_TAG=$(git tag | grep ^ckan-$CKANVERSION | sort --version-sort | tail -n 1)
-    git checkout $CKAN_TAG
-    echo "CKAN version: ${CKAN_TAG#ckan-}"
-fi
+# if [ $CKANVERSION == 'master' ]
+# then
+#     echo "CKAN version: master"
+# else
+#     CKAN_TAG=$(git tag | grep ^ckan-$CKANVERSION | sort --version-sort | tail -n 1)
+#     git checkout $CKAN_TAG
+#     echo "CKAN version: ${CKAN_TAG#ckan-}"
+# fi
 
 # install the recommended version of setuptools
 if [ -f requirement-setuptools.txt ]
