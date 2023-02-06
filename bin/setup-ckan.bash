@@ -13,7 +13,7 @@ sudo apt-get install xmlsec1 libxmlsec1-dev
 
 echo "Installing CKAN and its Python dependencies..."
 git clone https://github.com/SmdhMdep/ckan-smdh.git
-cd ckan
+cd ckan-smdh
 # if [ $CKANVERSION == 'master' ]
 # then
 #     echo "CKAN version: master"
