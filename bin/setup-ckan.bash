@@ -46,7 +46,7 @@ psql -h localhost -U postgres -c "CREATE USER ckan_default WITH PASSWORD 'pass';
 psql -h localhost -U postgres -c 'CREATE DATABASE ckan_test WITH OWNER ckan_default;'
 
 echo "Initialising the database..."
-cd ckan-smdh
+cd ckan
 ckan -c test-core.ini db init
 cd -
 
